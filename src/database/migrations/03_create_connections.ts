@@ -9,7 +9,7 @@ export async function up(Knex: Knex) {
             .references('id')
             .inTable('users');
 
-        table.timestamp('created_at').defaultTo('now()').notNullable();    
+        table.timestamp('created_at').defaultTo(Knex.raw('CURRENT_TIMESTAMP')).notNullable();    
     });
 }
 
